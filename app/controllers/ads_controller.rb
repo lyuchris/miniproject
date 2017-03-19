@@ -22,6 +22,12 @@ class AdsController < ApplicationController
         @ad = Ad.find(params[:id])
     end
 
+    def destroy
+    @ad = Ad.find(params[:id])
+    @ad.destroy
+    
+  end
+
 
 	private
 

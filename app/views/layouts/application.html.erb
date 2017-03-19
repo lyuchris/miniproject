@@ -8,7 +8,41 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body >
+    <header id="header">
+    <div class="container clearfix">
+      <div id="logo">
+        <a href="#">
+          <img src="https://api.fnkr.net/testimg/170x108/00CED1/FFF/?text=EPOCH" alt="logo">
+        </a>
+        
+      </div>
+      <nav>
+        <ul class="clearfix">
+          <li>
+            <a href="<%= events_path %>">home</a>
+          </li>
+          <li>
+            <a href="#">about</a>
+          </li>
+          <li>
+            <a href="<%=ads_path%>">Propositions</a>
+          </li>
+          <li>
+            <a href="#">portfolio</a>
+          </li>
+          <li>
+            <a href="#">contact</a>
+          </li>
+          
+        </ul>
+      </nav>
+      
+    </div>
+  </header>
+
+  
+      <%= yield %>
+      
   </body>
 </html>

@@ -1,27 +1,37 @@
-<h1>Ads list</h1>
-<table class="table">
-<% @ads.each do |e| %>
-  
-  <tr>
-    <td>
-  	<%= e.name %>
-  	
-  	</td>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <h2>Propositions</h2>
+     <hr class="short">
+   
+       <div class="container">
 
-  	<td>
-    
-  	<%= link_to "Show", ad_path(e), :class => "btn btn-primary" %>
+         <div class="row">
 
-  	<%= link_to "Edit", edit_ad_path(e) , :class => "btn btn-default" %>
-  	<%= link_to 'Delete', ad_path(e), :method => :delete, :class => "btn btn-danger" %>
-  	</td>
-
-  </tr>
+           <% @ads.each do |e| %>
+            <div class="col-md-4">  
      
-<%end%>
+  	    <p><%= e.name %></p> 
+  	    <p><%= e.description %></p>
+        <p><%= e.price %></p>
+        <img src="<%= e.img_url %>">
+      	
+    
+      	<p><%= link_to "Show", ad_path(e)  %></p> 
 
-</table> 
+  	    <p><%= link_to "Edit", edit_ad_path(e)  %></p> 
+  	    <p><%= link_to 'Delete', ad_path(e), :method => :delete %></p> 
+  	    
+     
+   
+
+   
+  </div>
+   <%end%>
+ </div>
+</div>
+</div>
+</div>
 
 
-
-<%= link_to "New Ad", new_ad_path , :class => "btn btn-primary"%>
+<%= link_to "New Proposition ", "new_ad_path"%>

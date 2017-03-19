@@ -1,0 +1,133 @@
+h2 {
+	text-transform: capitalize;
+	margin-bottom: 40px;
+	font-size: 2.5rem;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+nav a {
+    padding: 0 21px;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+}
+
+nav a:hover {
+	color: #50D4FD
+}
+
+#logo {
+	float: left;
+}
+
+nav {
+	float: right;
+	line-height: 108px;
+	text-transform: uppercase;
+}
+
+
+nav li {
+	float: left;
+	
+}
+
+
+
+body{
+	background-color: rgba(241, 241, 241, 0.84); 
+	margin-top: 25px;
+}
+
+.container {
+  display: block;
+  width: 1180px;
+  margin: 0 auto;
+}
+
+
+ul {
+	margin: 0;
+	padding-left: 0;
+}
+
+li {
+	list-style-type: none;
+
+}
+
+
+
+
+
+.button {
+	display: inline-block;
+	border-radius: 30px;
+	padding: 16px 28px;
+	background-color: #00d3cb;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: .9rem;
+	letter-spacing: 1px;
+	color: white;
+
+}
+
+.banner{
+	/*背景圖要比容器大*/
+	background-image: image-url("wintry.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	padding: 25px 0;
+	text-align: center;
+	text-transform: uppercase;
+
+}
+
+.banner .intro-text {
+	margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 100;
+  letter-spacing: 4px;
+}
+.banner h2 {
+	margin-bottom: 15px;
+  font-size: 3.8rem;
+  letter-spacing: 1px;
+}
+
+.banner .subtitle {
+	font-size: .9rem;
+  letter-spacing: 1px;
+}
+
+.banner .intro-wrapper {
+	margin-bottom: 120px;
+	padding: 50px;
+	background: rgba(255,255,255,.4);
+}
+
+
+/*fluid作法*/
+.container {
+	display: block;
+	max-width: 1000px;
+	margin: 0 auto ;
+}
+
+@media (max-width: 1000px) {
+ 	.col-4 ,.col-6{
+ 		width: 100%;
+ 	}
+ 	.col-3 {
+ 		width: 600px;
+ 	}
+ }
