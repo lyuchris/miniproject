@@ -1,0 +1,27 @@
+<h1>Ads list</h1>
+<table class="table">
+<% @ads.each do |e| %>
+  
+  <tr>
+    <td>
+  	<%= e.name %>
+  	
+  	</td>
+
+  	<td>
+    
+  	<%= link_to "Show", ad_path(e), :class => "btn btn-primary" %>
+
+  	<%= link_to "Edit", edit_ad_path(e) , :class => "btn btn-default" %>
+  	<%= link_to 'Delete', ad_path(e), :method => :delete, :class => "btn btn-danger" %>
+  	</td>
+
+  </tr>
+     
+<%end%>
+
+</table> 
+
+
+
+<%= link_to "New Ad", new_ad_path , :class => "btn btn-primary"%>
