@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ads
   resources :events
   resources :tickets
   resources :ads

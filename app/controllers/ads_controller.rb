@@ -9,17 +9,26 @@ class AdsController < ApplicationController
 
 	def create
 		@ad = Ad.new(ad_params)
-		if @ad.save
-			flash[:notice] = "新增成功"
-
-            redirect_to ads_path
-        else
-            render :action => :new #new.html.erb
-        end
+		@ad.save
+		redirect_to ads_path
+        
 	end
 
 	def show
         @ad = Ad.find(params[:id])
+    end
+
+    def edit
+    	@ad = Ad.find(params[:id])
+    end
+
+    def update
+        @ad = Ad.find(params[:id])
+        @ad.update(ad_params)
+            
+        redirect_to ad_url(@ad)
+        
+
     end
 
     def destroy

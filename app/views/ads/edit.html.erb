@@ -1,0 +1,10 @@
+
+<h1>Editing Propositions </h1>
+
+
+<%= form_for @ad  do |f| %>
+    <%= render :partial => "form",  :locals => {:f => f}%>
+   
+
+   <%= f.submit "Update", :class => "btn btn-primary" %>
+<% end %>
