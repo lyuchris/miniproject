@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
 <p>
   <strong>Event Organizer:</strong>
   <%= @event.artist %>
@@ -35,5 +37,9 @@
   <%= @event.location %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Edit', edit_event_path(@event) %><br> 
 <%= link_to 'Back', events_path %>
+</div>
+</div>
+</div>
+

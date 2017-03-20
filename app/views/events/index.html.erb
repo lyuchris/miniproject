@@ -5,7 +5,7 @@
 <section class="banner">
     <div class="intro-wrapper">
       <!-- <div class="intro-text">Welcome to Epoch</div> -->
-      <h2>Epoch</h1>
+      <h2>EPOCH</h1>
       <div class="subtitle">
         (n) a particular period of time in history or a person's life.
       </div>
@@ -40,17 +40,20 @@
         <td><%= event.price_high %></td>
         <td><%= event.event_date %></td>
         <td><%= event.location %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'More', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
       <% end %>
+      
     </tbody>
+    <%= paginate @events %>
    </table>
+
    </div>
   </div>
  </div>
 </div>
 <br>
-
 <%= link_to 'New Event', new_event_path %>
