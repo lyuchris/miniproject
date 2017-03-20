@@ -20,7 +20,7 @@
       	<p><%= link_to "Show", ad_path(e)  %></p> 
 
   	    <p><%= link_to "Edit", edit_ad_path(e)  %></p> 
-  	    <p><%= link_to 'Delete', ad_path(e), :method => :delete %></p> 
+  	    <p><%= link_to 'Delete', ad_path(e), :method => :delete, data: { confirm: 'Are you sure?' } %></p> 
    
   </div>
    <%end%>
@@ -30,4 +30,4 @@
 </div>
 
 
-<%= link_to 'New Event', new_ad_path %>
+<%= link_to '新增生活提案', new_ad_path %>

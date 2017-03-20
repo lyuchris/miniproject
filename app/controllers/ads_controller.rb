@@ -1,40 +1,44 @@
 class AdsController < ApplicationController
+  before_action :set_ad, :only => [:show, :edit, :update, :destroy]
 	def index
-      @ads = Ad.all
-    end
+    @ads = Ad.page(params[:page]).per(3)
+  end
 
-    def new
+  def new
 		@ad = Ad.new
 	end
 
 	def create
 		@ad = Ad.new(ad_params)
-		@ad.save
-		redirect_to ads_path
-        
+		if @ad.save
+      flash[:notice] = "新增成功"
+      redirect_to ads_path
+    else
+      render :action => :new #new.html.erb
+    end
 	end
 
 	def show
-        @ad = Ad.find(params[:id])
+    @page_title = @ad.name
+  end
+
+
+  def edit
+  end
+
+  def update
+    if @ad.update(ad_params)
+      flash[:notice] = "編輯成功"
+      redirect_to ad_url(@ad)
+    else
+      render :action => :edit
     end
+  end
 
-    def edit
-    	@ad = Ad.find(params[:id])
-    end
-
-    def update
-        @ad = Ad.find(params[:id])
-        @ad.update(ad_params)
-            
-        redirect_to ad_url(@ad)
-        
-
-    end
-
-    def destroy
-    @ad = Ad.find(params[:id])
+  def destroy
     @ad.destroy
-    
+    flash[:alert] = "刪除成功"
+    redirect_to ads_path
   end
 
 
@@ -44,5 +48,9 @@ class AdsController < ApplicationController
 	def ad_params
 		params.require(:ad).permit(:name, :description, :price, :email, :img_url)
 	end
+
+  def set_ad
+    @ad = Ad.find(params[:id])
+  end
 
 end

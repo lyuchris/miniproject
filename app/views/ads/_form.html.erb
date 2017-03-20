@@ -1,17 +1,24 @@
 
-  
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+<%= f.label :name, "Name" %>
+<%= f.text_field :name %>
 
 
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+<%= f.label :description, "Description" %>
+<%= f.text_area :description %>
 
-    <%= f.label :price, "Price" %>
-    <%= f.text_area :price %>
+<%= f.label :price, "Price" %>
+<%= f.text_area :price %>
 
-    <%= f.label :email, "Email" %>
-    <%= f.text_area :email %>
+<%= f.label :email, "Email" %>
+<%= f.text_area :email %>
 
-    <%= f.label :img_url, "請提供img_url" %>
-    <%= f.text_area :img_url %>
+<%= f.label :img_url, "請提供img_url" %>
+<%= f.text_area :img_url %>
+
+<% if @ad.errors.any? %>
+  <ul>
+    <% @ad.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title><%= @page_title || "EPOCH" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,19 +20,16 @@
       <nav>
         <ul class="clearfix">
           <li>
-            <a href="<%= events_path %>">home</a>
+            <a href="<%= events_path %>">首頁</a>
           </li>
           <li>
-            <a href="#">about</a>
+            <a href="#">關於我們</a>
           </li>
           <li>
-            <a href="<%=ads_path%>">Propositions</a>
+            <a href="<%=ads_path%>">生活提案</a>
           </li>
           <li>
-            <a href="#">portfolio</a>
-          </li>
-          <li>
-            <a href="#">contact</a>
+            <a href="#">聯絡資訊</a>
           </li>
           
         </ul>
@@ -40,8 +37,8 @@
       
     </div>
   </header>
-
-  
+      <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:alert] %></p>
       <%= yield %>
       
   </body>
