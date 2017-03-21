@@ -10,39 +10,47 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :活動主題 %>
+    <%= f.text_field :title %>
+  </div>
 
   <div class="field">
-    <%= f.label :artist %>
+    <%= f.label :展演人 %>
     <%= f.text_field :artist %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :活動簡介 %>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
-    <%= f.label :Price_from %>
-    <%= f.text_field :price_low %>
+    <%= f.label :價格 %>
+    <%= f.text_field :price %>
   </div>
 
   <div class="field">
-    <%= f.label :Price_to %>
-    <%= f.text_field :price_high %>
+    <%= f.label :購票開始日 %>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :購票結束日 %>
+    <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= f.label :Date %>
+    <%= f.label :活動日期 %>
     <%= f.date_select :event_date %>
   </div>
 
    <div class="field">
-    <%= f.label :Information %>
+    <%= f.label :備註 %>
     <%= f.text_area :information %>
   </div>
 
    <div class="field">
-    <%= f.label :Location %>
+    <%= f.label :活動地點 %>
     <%= f.text_field :location %>
   </div>
 

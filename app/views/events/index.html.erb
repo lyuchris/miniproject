@@ -21,14 +21,15 @@
    <table class="table">
 
     <thead>
-    <h2>達人活動</h2>
+    <h2>大人物EPOCH</h2>
      <tr>
-      <th>Event Organizer</th>
-      <th>Description</th>
-      <th>Price from</th>
-      <th>Price to</th>
-      <th>date</th>
-      <th>location</th>
+      <th>活動主題</th>
+      <th>展演人</th>
+      <th>活動簡介</th>
+      <th>價格</th>
+      <th>購票結束日</th>
+      <th>活動日期</th>
+      <th>地點</th>
       <th colspan="3"></th>
      </tr>
    </thead>
@@ -36,13 +37,17 @@
    <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.title %></td>
         <td><%= event.artist %></td>
         <td><%= event.description %></td>
-        <td><%= event.price_low %></td>
-        <td><%= event.price_high %></td>
+        <td><%= event.price %></td>
+        <td><%= event.end_date %></td>
         <td><%= event.event_date %></td>
         <td><%= event.location %></td>
         <td><%= link_to 'More', event %></td>
+        <td><%= link_to "Attendees List", event_attendees_path(event), :class => "btn btn-primary" %></td>
+
+        <td><%= link_to "活動報名", new_event_attendee_path(event) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 

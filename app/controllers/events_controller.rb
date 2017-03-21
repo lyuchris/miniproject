@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @page_title = @event.artist
+    @page_title = @event.title
   end
 
   # GET /events/new
@@ -61,6 +61,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:artist, :description, :price_low, :price_high, :event_date, :information, :location)
+      params.require(:event).permit(:artist, :description, :price_low, :price_high, :event_date, :information, :location, :title, :start_date, :end_date, :price)
     end
 end

@@ -1,0 +1,22 @@
+<% if @event.errors.any? %>
+  <ul>
+  	<% @attendee.errors.full_messages.each do |msg|%>
+  	<li><%= msg %></li>
+  	<% end -%>
+  </ul>
+<% end -%>
+
+
+<%= form_for @attendee, :url => event_attendees_path(@event)  do |a| %>
+
+  <div class="form-group">
+    <%= a.label :name, "Name" %>
+    <%= a.text_field :name ,:class => "form-control"%>
+    <%= a.label :email, "Email" %>
+    <%= a.text_field :email ,:class => "form-control"%>
+  </div>
+
+  
+  <%= a.submit "報名", :class => "btn btn-primary" %>
+<% end %>
+

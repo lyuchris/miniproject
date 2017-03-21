@@ -1,0 +1,22 @@
+<h2><%= @event.title %>: 報名列表</h2>
+
+<table class="table">
+<% @attendees.each do |a| %>
+  
+  <tr>
+    <td>
+  	<%= a.name %>
+    <%= a.email %>
+  	</td>
+
+
+  	<td>
+  	<%#= link_to "Show", event_attendee_path(@event,a), :class => "btn btn-primary" %>
+
+  	<%#= link_to "Edit", edit_event_attendee_path(@event,a) , :class => "btn btn-default" %>
+  	<%#= link_to 'Delete', event_attendee_path(@event,a), :method => :delete, :class => "btn btn-danger" %>
+  	</td>
+
+  </tr>
+<%end%>
+</table>

@@ -2,40 +2,53 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+
 <p>
-  <strong>Event Organizer:</strong>
+  <strong>活動主題:</strong>
+  <%= @event.title %>
+</p>
+
+
+<p>
+  <strong>展演人:</strong>
   <%= @event.artist %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>活動簡介:</strong>
   <%= @event.description %>
 </p>
 
 <p>
-  <strong>Price from:</strong>
-  <%= @event.price_low %>
+  <strong>價格:</strong>
+  <%= @event.price %>
 </p>
 
 <p>
-  <strong>Price to:</strong>
-  <%= @event.price_high %>
+  <strong>購票開始日:</strong>
+  <%= @event.start_date %>
 </p>
-
 <p>
-  <strong>Date:</strong>
+  <strong>購票結束日:</strong>
   <%= @event.event_date %>
 </p>
 
 <p>
-  <strong>Information:</strong>
+  <strong>活動日期:</strong>
+  <%= @event.event_date %>
+</p>
+
+<p>
+  <strong>備註:</strong>
   <%= @event.information %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>活動地點:</strong>
   <%= @event.location %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %><br> 
 <%= link_to 'Back', events_path %>
