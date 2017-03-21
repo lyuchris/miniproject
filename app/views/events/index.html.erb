@@ -14,16 +14,23 @@
       <a href="<%= ads_path%>" class="button"> 更多提案</a>
   </section>
 
+  
+
 <div class="container">
  <div class="row">
   <div class="col-md-12">
    <div class="table-responsive">
+   <%= link_to '活動地點排序', events_path( :order => "location") %>
+   <%= link_to '活動日期排序', events_path( :order => "event_date") %>
    <table class="table">
-
+    <%= form_tag events_path, :method => :get do %>
+      <%= text_field_tag "keyword" %>
+      <%= submit_tag "搜尋展演人" %>
+    <% end %>
     <thead>
     <h2>大人物EPOCH</h2>
      <tr>
-      <th>活動主題</th>
+      <th>Category</th>
       <th>展演人</th>
       <th>活動簡介</th>
       <th>價格</th>
@@ -37,7 +44,7 @@
    <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
+        <td><%= event.category.try(:name) %></td>
         <td><%= event.artist %></td>
         <td><%= event.description %></td>
         <td><%= event.price %></td>

@@ -1,25 +1,43 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
   def index
-    @events = Event.page(params[:page]).per(3)
+    if params[:keyword]
+      @events = Event.where( [ "artist like ?", "%#{params[:keyword]}%" ] )
+    else
+      @events = Event.all
+    end
+
+
+    # if params[:order]
+    #   sort_by = (params[:order]== 'location') ? 'location' : 'id'
+    #   @events = @events.order(sort_by)
+    # end
+    if params[:order]
+      sort_by = if params[:order]== 'event_date' 
+                   'event_date'
+                elsif params[:order]== 'location' 
+                    'location'
+                else
+                    'id'
+                end
+                  
+      @events = @events.order(sort_by)
+    end
+    @events = @events.page(params[:page]).per(3)
   end
 
-  # GET /events/1
-  # GET /events/1.json
+
   def show
     @page_title = @event.title
   end
 
-  # GET /events/new
+
   def new
     @event = Event.new
   end
 
-  # POST /events
-  # POST /events.json
+
   def create
     @event = Event.new(event_params)
     if @event.save
@@ -61,6 +79,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:artist, :description, :price_low, :price_high, :event_date, :information, :location, :title, :start_date, :end_date, :price)
+      params.require(:event).permit(:artist, :description, :price_low, :price_high, :event_date, :information, :location, :title, :start_date, :end_date, :price, :category_id, :group_ids => [])
     end
 end

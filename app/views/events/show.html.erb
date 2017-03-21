@@ -8,6 +8,22 @@
   <%= @event.title %>
 </p>
 
+<p>
+  <strong>活動分類:</strong>
+  <%= @event.category.try(:name) %>
+</p>
+
+
+<p>
+  <strong>活動標籤:</strong>
+</p>
+<ul>  
+<% @event.groups.each do |g| %>
+  <li>#<%= g.name %></li>
+
+<% end -%>
+</ul>
+
 
 <p>
   <strong>展演人:</strong>
