@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!, :except => [:index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,18 +10,13 @@ class EventsController < ApplicationController
       @events = Event.all
     end
 
-
-    # if params[:order]
-    #   sort_by = (params[:order]== 'location') ? 'location' : 'id'
-    #   @events = @events.order(sort_by)
-    # end
     if params[:order]
       sort_by = if params[:order]== 'event_date' 
-                   'event_date'
+                   'event_date ASC'
                 elsif params[:order]== 'location' 
-                    'location'
+                    'location ASC'
                 else
-                    'id'
+                    'id ASC'
                 end
                   
       @events = @events.order(sort_by)
