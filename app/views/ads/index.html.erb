@@ -4,30 +4,30 @@
      <h2>生活提案</h2>
      <hr class="short">
    
-       <div class="container">
-
-         <div class="row">
-
-           <% @ads.each do |e| %>
-            <div class="col-md-4">  
-     
-  	    <p><%= e.name %></p> 
-  	    <p><%= e.description %></p>
-        
-        <img src="<%= e.img_url %>">
-      	
+<div class="container">
+  <div class="row">
     
-      	<p><%= link_to "Show", ad_path(e)  %></p> 
+  <% @ads.each do |ad| %>
+  <div class="col-md-4"> 
+  <img src="<%= ad.img_url %>">
+    <p><%= ad.name %></p>
+    <p><%= ad.description %></p>
+    <p><%= pluralize(ad.votes.count, "vote") %></p>
+    <p><%= button_to '+1', upvote_ad_path(ad), method: :post %></p>
 
-  	    <p><%= link_to "Edit", edit_ad_path(e)  %></p> 
-  	    <p><%= link_to 'Delete', ad_path(e), :method => :delete, data: { confirm: 'Are you sure?' } %></p> 
-   
+    <p><%= link_to "Show", ad_path(ad)  %></p> 
+
+    <p><%= link_to "Edit", edit_ad_path(ad)  %></p> 
+    <p><%= link_to 'Delete', ad_path(ad), :method => :delete, data: { confirm: 'Are you sure?' } %></p> 
+  
+
   </div>
-   <%end%>
+  <% end %>
+   </div>
+  </div>
  </div>
 </div>
-</div>
-</div>
+
 
 
 <%= link_to '新增生活提案', new_ad_path %>

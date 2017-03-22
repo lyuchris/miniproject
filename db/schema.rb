@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322071427) do
+ActiveRecord::Schema.define(version: 20170322154141) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "name"
@@ -62,13 +62,16 @@ ActiveRecord::Schema.define(version: 20170322071427) do
     t.datetime "end_date"
     t.decimal  "price"
     t.integer  "category_id"
+    t.integer  "user_id"
     t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -100,6 +103,12 @@ ActiveRecord::Schema.define(version: 20170322071427) do
     t.string   "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "ad_id"
   end
 
 end

@@ -1,4 +1,6 @@
 class AdsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+
   before_action :set_ad, :only => [:show, :edit, :update, :destroy]
 	def index
     @ads = Ad.page(params[:page]).per(3)
@@ -39,6 +41,12 @@ class AdsController < ApplicationController
     @ad.destroy
     flash[:alert] = "刪除成功"
     redirect_to ads_path
+  end
+
+  def upvote
+    @ad = Ad.find(params[:id])
+    @ad.votes.create
+    redirect_to(ads_path)
   end
 
 

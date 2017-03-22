@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :ads
+  root 'ads#index'
+  resources :groups
+  resources :ads do
+    member do
+      post 'upvote'
+    end
+  end
   resources :events do
   	resources :attendees , :controller => "event_attendees"
   end
   resources :tickets
-  resources :ads
 
   namespace :admin do
     resources :events
