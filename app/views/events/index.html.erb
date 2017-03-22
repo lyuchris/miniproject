@@ -22,11 +22,12 @@
    <div class="table-responsive">
    <%= link_to '活動地點排序', events_path( :order => "location") %>
    <%= link_to '活動日期排序', events_path( :order => "event_date") %>
-   <table class="table">
-    <%= form_tag events_path, :method => :get do %>
+   <%= form_tag events_path, :method => :get do %>
       <%= text_field_tag "keyword" %>
       <%= submit_tag "搜尋展演人" %>
     <% end %>
+   <table class="table">
+    
     <thead>
     <h2>大人物EPOCH</h2>
      <tr>
