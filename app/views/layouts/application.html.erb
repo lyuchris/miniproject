@@ -53,8 +53,11 @@
 
       
       <%= yield %>
-      <br>
-      <%= link_to "admin", admin_events_path %>
+      
+
+      <% if current_user && current_user.admin? %>
+        <%= link_to "admin", admin_events_path %>
+      <% end -%>
       
   </body>
 </html>
