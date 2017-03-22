@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'ads#index'
+  
   resources :groups
   resources :ads do
     member do
