@@ -9,9 +9,11 @@
   </head>
 
   <body >
-    <header id="header">
-    <div class="container clearfix">
-      <div id="logo">
+   <div class="container-fluid">
+    <%= render "common/navbar" %>
+     <header id="header">
+      <div class="container clearfix">
+       <div id="logo">
         <a href="<%= events_path%>">
           <img src="https://api.fnkr.net/testimg/170x108/00CED1/FFF/?text=EPOCH" alt="logo">
         </a>
@@ -52,9 +54,10 @@
       <p style="color: green"><%= flash[:notice] %></p>
       <p style="color: red"><%= flash[:alert] %></p>
 
-      
+     
       <%= yield %>
-      
+   </div>
+      <%= render "common/footer" %>
 
       <% if current_user && current_user.admin? %>
         <%= link_to "admin", admin_events_path %>
