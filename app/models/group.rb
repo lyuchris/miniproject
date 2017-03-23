@@ -1,5 +1,6 @@
 class Group < ApplicationRecord
     belongs_to :user
+    has_many :posts
     validates :name, presence: true
    
 	has_many :event_groupships
