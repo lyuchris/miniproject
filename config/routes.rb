@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  resources :groups
+  resources :groups do
+    resources :posts
+  end
   resources :ads do
     member do
       post 'upvote'
