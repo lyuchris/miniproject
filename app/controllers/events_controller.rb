@@ -21,7 +21,7 @@
                   
       @events = @events.order(sort_by)
     end
-    @events = @events.page(params[:page]).per(3)
+    #@events = @events.page(params[:page]).per(3)
   end
 
 
