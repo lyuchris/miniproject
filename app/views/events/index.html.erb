@@ -52,9 +52,7 @@
         <td><%= event.end_date %></td>
         <td><%= event.event_date %></td>
         <td><%= event.location %></td>
-        <td><%= link_to 'More', event %></td>
-        <td><%= link_to "Attendees List", event_attendees_path(event), :class => "btn btn-primary" %></td>
-
+        <td><%= link_to "more", event %></td>
         <td><%= link_to "活動報名", new_event_attendee_path(event) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

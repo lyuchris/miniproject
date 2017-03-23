@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   
   has_many :ads
+  has_many :groups
 
   def admin?
   	self.role == "admin"
